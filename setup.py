@@ -19,6 +19,7 @@ setup(
                  'Programming Language :: Python :: 3.6',
                  'Programming Language :: Python :: 3.7',
                  'Programming Language :: Python :: 3.8',
+                 'Programming Language :: Python :: 3.9',
                  'Topic :: Security',
                  'Intended Audience :: Information Technology',
                  'Intended Audience :: Financial and Insurance Industry',
@@ -28,10 +29,12 @@ setup(
     url='https://github.com/Netflix-Skunkworks/riskquant',
     download_url=('https://github.com/Netflix-Skunkworks/riskquant/archive/' + version + '.tar.gz'),
     setup_requires=['setupmeta'],
-    python_requires='>=3.5, <3.8',
+    python_requires='>=3.5',
     install_requires=[
         'matplotlib',
-        'numpy <1.19.0, >= 1.16.0',
+        # numpi 1.18 inadvertedly renamed 'numpy.random.bit_generator' to 'numpy.random._bit_generator' 
+        # so we must avoid using 1.18.
+        'numpy <1.19.0, >= 1.16.0, != 1.18.*',
         'scipy',
         # Tensorflow probability is tested and stable against Tensorflow 2.1.0
         # https://github.com/tensorflow/probability/releases
