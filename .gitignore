@@ -51,3 +51,6 @@ docs/_build/
 
 # Exuberant ctags files
 tags
+
+# vscode
+.vscode/
